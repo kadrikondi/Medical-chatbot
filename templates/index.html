@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Malariachatbot</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="static/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>Malaria Chatbot System</h1>
+
+    <div>
+      <h4
+        class="alert alert-primary container text-center"
+        style="text-transform: uppercase"
+      >
+        WELCOME, <span id="oruko" ></span> hope
+        your are good     <span class="ml-5">
+        <button class="btn btn-danger" onclick="logout()">Logout</button></span
+      >
+      </h4>
+     
+      <script>
+        function logout() {
+          window.localStorage.clear();
+          window.location.assign("/");
+        }
+        let namee = localStorage.getItem("loginname");
+        var oruko = document.getElementById("oruko");
+        oruko.innerHTML = namee;
+        //  oruko.innerText=namee
+      </script>
+
+      <div id="chatbox">
+        <p class="botText">
+          <span>Please try typing full sentences as I am still learning!</span>
+        </p>
+        <p class="botText">
+          <span
+            >I am a chatbot. You can begin conversation by typing in a message
+            and pressing enter.</span
+          >
+        </p>
+      
+      </div>
+      <div id="userInput" class="form-inline">
+        <input
+          id="textInput"
+          type="text"
+          name="msg"
+          placeholder="Message"
+          class="form-control"
+        />
+        <input
+          id="buttonInput"
+          type="submit"
+          value="Send"
+          class="btn btn-success"
+        />
+      </div>
+      <script>
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+          var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document
+            .getElementById("userInput")
+            .scrollIntoView({ block: "start", behavior: "smooth" });
+          $.get("/get", { msg: rawText }).done(function (data) {
+            var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+            $("#chatbox").append(botHtml);
+            document
+              .getElementById("userInput")
+              .scrollIntoView({ block: "start", behavior: "smooth" });
+          });
+        }
+        $("#textInput").keypress(function (e) {
+          if (e.which == 13) {
+            getBotResponse();
+          }
+        });
+        $("#buttonInput").click(function () {
+          getBotResponse();
+        });
+      </script>
+    </div>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <footer style="text-align: center; margin-top: 20px">
+      Project by ABDULLAHI ABASS OLABISI 2021
+    </footer>
+  </body>
+</html>

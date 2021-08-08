@@ -1,0 +1,31 @@
+bot : Hi There! I am a medical chatbot. You can begin conversation by typing in a message and pressing enter.
+user : ola
+bot : - We are located at Dwarkadas J. Sanghvi College of Engineering as of now.
+user : good
+bot : - I'm doing well. How are you feeling today?
+user : im feeling headache
+bot : - This is a symptom of fever, you should take a tablet of crocin after you have your meal.
+user : i have running nose
+bot : - good to know. how may i assist you then?
+user : malaria
+bot : - okay. your age has been stored. Which city do you live in?
+user : Lagos
+bot : - okay. your age has been stored. Which city do you live in?
+user : hhhhhhhggf
+bot : - The app is working great! How are you feeling today?
+user : my name is idris
+bot : - Hello! your name has been stored. What is your age?
+user : 24
+bot : - - are you online?
+user : yes
+bot : - Bye. Nice talking to you
+user : not yet
+bot : - Bye. Nice talking to you
+user : stomach 
+bot : - ok, is there a swelling or a physical deformity or bleeding at the aching region.
+user : there is swelling
+bot : - okay, it is a common symptom of fracture, should I book an an appointment for you.
+user : yes
+bot : - Bye. Nice talking to you
+user : hi
+bot : - Hello. How are you feeling today?
